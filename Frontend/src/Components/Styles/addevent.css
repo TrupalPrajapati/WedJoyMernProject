@@ -1,0 +1,186 @@
+/* .event-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f8fb;
+    margin: 0;
+}
+
+.event-box {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+
+.event-box h2 {
+    color: navy;
+    margin-bottom: 15px;
+}
+
+.event-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.event-box input,
+.event-box textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.event-box textarea {
+    resize: none;
+    height: 100px;
+}
+
+
+.event-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4a90e2, navy);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.event-btn:hover {
+    background: navy;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+} */
+
+/* addevent.css */
+
+.event-container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.event-box {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 800px; /* Increased width to accommodate two columns */
+    margin-top: 5rem;
+}
+
+.event-box h2 {
+    color: navy;
+    margin-bottom: 20px;
+}
+
+.event-box form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 15px; /* Reduced gap for better alignment */
+    padding: 0 20px; /* Add padding to the left and right for consistent spacing */
+}
+
+/* Style all input, textarea, and select elements */
+.event-box input,
+.event-box textarea,
+.event-box select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.event-box input:focus,
+.event-box textarea:focus,
+.event-box select:focus {
+    border-color: #4a90e2;
+}
+
+/* Make textarea span both columns */
+.event-box textarea {
+    resize: vertical;
+    min-height: 100px;
+    grid-column: span 2;
+}
+
+/* Style the date-time group */
+.event-box .date-time-group {
+    display: flex;
+    gap: 10px;
+    grid-column: span 2; /* Span both columns */
+}
+
+.event-box .date-time-group input {
+    flex: 1;
+}
+
+/* Style the button to span both columns */
+.event-box button[type="submit"] {
+    grid-column: span 2;
+    width: 100%;
+    background: linear-gradient(135deg, #4a90e2, navy);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.event-box button[type="submit"]:hover {
+    background: navy;
+}
+
+/* Style error messages (if needed) */
+.event-box .error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    grid-column: span 2; /* Span both columns */
+}
+
+/* Ensure labels or placeholders are aligned properly */
+.event-box input::placeholder,
+.event-box textarea::placeholder {
+    color: #999; /* Light gray placeholder text */
+}
+
+/* Add margin to the bottom of select elements for better spacing */
+.event-box select {
+    margin-bottom: 0; /* Reset margin */
+}

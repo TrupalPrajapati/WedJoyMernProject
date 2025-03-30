@@ -1,0 +1,205 @@
+/* Event Cards Container
+.event-container {
+  margin-top: 15rem;
+  display: flex;
+  max-width: 95%;
+  padding: 4rem;
+  flex-wrap: wrap;
+  gap: 30px; 
+  justify-content: center; 
+  align-items: flex-start; 
+}
+
+
+.event-card {
+  width: 300px; 
+  height: 270px; 
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.event-image {
+  width: 100%;
+  height: 180px; 
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.event-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.event-meta {
+  font-size: 14px;
+  color: #666;
+} */
+
+/* Event Cards Container */
+.event-container {
+  margin-top: 15rem;
+  margin-bottom: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Spacing between cards */
+  justify-content: center; /* Center align */
+  align-items: flex-start; /* Proper alignment */
+}
+
+/* Individual Event Card */
+.event-card {
+  width: 360px; /* Increased width */
+  height: auto; /* Dynamic height */
+  cursor: pointer;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Image */
+.event-image {
+  width: 100%;
+  height: 180px; /* Fixed height for uniformity */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Event Content */
+.event-content {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* Spacing between text */
+}
+
+p{
+  margin: 4px;
+}
+
+/* Event Title */
+.event-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333;
+}
+
+/* Event Meta Details */
+.event-meta,
+.event-date,
+.event-attendees,
+.event-description {
+  font-size: 14px;
+  color: #555;
+}
+
+
+/* Event Description with Limited Height */
+.event-description {
+  font-size: 15px;
+  font-weight: 500;
+  color: #444;
+  max-height: 20px; /* Prevents card expansion */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Works in WebKit browsers */
+  -webkit-box-orient: vertical;
+  line-clamp: 3; /* Standard property for future compatibility */
+  box-orient: vertical;
+  word-break: break-word;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  .event-card {
+      width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+.btn {
+  width: 100%;
+  background: linear-gradient(135deg, #4a90e2, navy);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: navy;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Space between buttons */
+  gap: 10px; /* Adds space between buttons */
+  margin-top: 10px; /* Adjust as needed */
+}
+
+/* .btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+} */
+
+.registered {
+  background-color: #1e3a8a; /* Dark blue */
+  color: white;
+}
+
+.cancel {
+  width: 100%;
+  /* background: linear-gradient(135deg, #4a90e2, navy); */
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s;
+  background-color: #dc2626; /* Red */
+  color: white;
+}
+
+.cancel:hover{
+  background: navy;
+}

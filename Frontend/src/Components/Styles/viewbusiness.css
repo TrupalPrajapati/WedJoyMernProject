@@ -1,0 +1,79 @@
+/* Parent container */
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Business container (grid layout) */
+  .business-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+  }
+  
+  /* Business card styles */
+  .business-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: start;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .business-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Business Title */
+  .business-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Category */
+  .business-category {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  /* Business Info (Phone, Email, Timing) */
+  .business-info {
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    font-size: 0.95rem;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  .icon {
+    color: #007bff;
+    margin-right: 8px;
+  }
+  
+  /* View Details Button */
+  .view-details {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .view-details:hover {
+    background: linear-gradient(45deg, #0056b3, #003f7f);
+  }
+  

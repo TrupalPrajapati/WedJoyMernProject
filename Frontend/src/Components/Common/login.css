@@ -1,0 +1,123 @@
+/* login.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .auth-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px; /* Same width as the signup box */
+  }
+  
+  .auth-card h2 {
+    color: navy;
+    margin-bottom: 10px;
+  }
+  
+  .auth-card p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .input-group .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #4a90e2;
+    font-size: 18px;
+  }
+  
+  .auth-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #4a90e2, navy);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+  }
+  
+  .auth-btn:hover {
+    background: navy;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+  }
+  
+  .auth-footer {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .auth-footer a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style for the role select dropdown */
+.role-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    background: white;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .role-select:focus {
+    border-color: #4a90e2;
+  }

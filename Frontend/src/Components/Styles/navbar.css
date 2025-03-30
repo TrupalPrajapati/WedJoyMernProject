@@ -1,0 +1,56 @@
+/* Navbar Container */
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #4a90e2, navy); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Logo */
+ .nav-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Add subtle shadow */
+  margin-left: 24px;
+} 
+
+  
+
+  
+  /* Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+  }
+  
+  /* Nav Links Styling */
+  .nav-links a {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    padding: 8px 12px;
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  /* Hover Effect - Same as Signup Button */
+  .nav-links a:hover {
+    background: white;
+    color: navy;
+  }
+  
+  /* Contact Link Margin Fix */
+  .contact {
+    margin-right: 50px;
+  }
+  

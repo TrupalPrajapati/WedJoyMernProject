@@ -1,0 +1,31 @@
+.role-selection-container {
+    text-align: center;
+    padding: 30px;
+  }
+  
+  .role-selection-container h2 {
+    margin-bottom: 20px;
+    color: navy;
+  }
+  
+  .role-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .role-buttons button {
+    background: linear-gradient(135deg, #4a90e2, navy);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .role-buttons button:hover {
+    background: navy;
+  }
+  

@@ -1,0 +1,128 @@
+.business-container {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.business-box {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 800px; /* Increased width for two-column layout */
+    margin-top: 5rem;
+}
+
+.business-box h2 {
+    color: navy;
+    margin-bottom: 20px;
+}
+
+.business-box form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    gap: 15px; /* Reduced gap for better alignment */
+    padding: 0 20px; /* Add padding for spacing */
+}
+
+/* Style input, textarea, and select elements */
+.business-box input,
+.business-box textarea,
+.business-box select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.business-box input:focus,
+.business-box textarea:focus,
+.business-box select:focus {
+    border-color: #4a90e2;
+}
+
+/* Make textarea span both columns */
+.business-box textarea {
+    resize: vertical;
+    min-height: 100px;
+    grid-column: span 2;
+}
+
+/* Style the category and contact input group */
+.business-box .category-contact-group {
+    display: flex;
+    gap: 10px;
+    grid-column: span 2; /* Span both columns */
+}
+
+.business-box .category-contact-group input {
+    flex: 1;
+}
+
+/* Style the button to span both columns */
+.business-box button[type="submit"] {
+    grid-column: span 2;
+    width: 100%;
+    background: linear-gradient(135deg, #4a90e2, navy);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.business-box button[type="submit"]:hover {
+    background: navy;
+}
+
+/* Style error messages */
+.business-box .error {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    grid-column: span 2;
+}
+
+/* Placeholder styling */
+.business-box input::placeholder,
+.business-box textarea::placeholder {
+    color: #999; /* Light gray placeholder text */
+}
+
+/* Adjust margin for select elements */
+.business-box select {
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .business-box {
+        width: 90%;
+    }
+
+    .business-box form {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .business-box textarea,
+    .business-box .category-contact-group,
+    .business-box button[type="submit"] {
+        grid-column: span 1; /* Ensure full width in mobile view */
+    }
+}
