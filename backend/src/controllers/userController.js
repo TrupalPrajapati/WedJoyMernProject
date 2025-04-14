@@ -14,35 +14,6 @@ const getAllUsers = async (req, res) => {
   });
 };
 
-// //addUser
-// const addUser = async (req, res) => {
-//   const saveUser = await (await userModel.create(req.body)).populate("roleId");
-
-//   res.json({
-//     message: "User created...",
-//     data: saveUser,
-//   });
-// };
-
-//SignUp
-// const signup = async (req, res) => {
-
-//     try{
-//         // console.log("Request Body:", req.body); 
-//         const salt = bcrypt.genSaltSync(10);
-//         const hashedPasswrod = bcrypt.hashSync(req.body.password,salt);  //saved password will be encrypted here
-//         req.body.password = hashedPasswrod;   //plain pass should be replaced with hashed(encrypted) pass
-      
-//         const createdUser = await userModel.create(req.body);  
-//         console.log(createdUser);
-//          //
-//         await mailUtils.sendingMail(createdUser.email, "Greet", "Welcome to the wedjoy");
-//         res.status(200).json({ message: "User signed up successfully!" });
-//     }catch(error){
-//         return res.status(400).json({ msg: "Signup failed: All fields are required" });
-//     }
-// };
-
 // SignUp
 const signup = async (req, res) => {
   try {

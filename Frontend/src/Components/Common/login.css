@@ -121,3 +121,22 @@ body {
   .role-select:focus {
     border-color: #4a90e2;
   }
+
+  .forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: -12px;
+    margin-bottom: 6px;
+    padding-right: 2px;
+    font-size: 16px;
+    color: navy;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: #4a90e2;
+}
+

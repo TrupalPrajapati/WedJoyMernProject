@@ -39,8 +39,10 @@ export const LoginUser = () => {
         });
         // save role data in local storage
         console.log(res.data.data.role);
+        localStorage.setItem("userName", res.data.data.name);
         localStorage.setItem("role",res.data.data.role);
         localStorage.setItem("id", res.data.data._id);
+        
         window.dispatchEvent(new Event("storage")); // Notify Navbar to update
         //naviget
         navigate("/vieweventascommunitymember");
@@ -89,7 +91,7 @@ export const LoginUser = () => {
           {errors.password && (
             <span className="error">{errors.password.message}</span>
           )}
-
+          <Link to="/forgotpassword" className="forgot-password">forgot Password</Link>
           <button type="submit" className="auth-btn">
             Login
           </button>

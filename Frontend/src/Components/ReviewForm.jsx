@@ -16,6 +16,9 @@ const ReviewForm = () => {
     comment: comment
   }
 
+  console.log(data);
+  
+
   const submitReview = async (e) => {
     e.preventDefault();
     try {

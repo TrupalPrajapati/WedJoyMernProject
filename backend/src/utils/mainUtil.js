@@ -18,7 +18,8 @@ const sendingMail = async(to,subject,text)=>{
         from:"trupalm2211@gmail.com",
         to:to,
         subject:subject,
-        html: "<h1>"+text+"</h1>"
+        // html: "<h1>"+text+"</h1>"
+        html: "<div>"+text+"<div>"
     }
 
     //mailres

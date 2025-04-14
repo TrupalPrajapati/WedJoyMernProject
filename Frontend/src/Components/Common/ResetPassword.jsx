@@ -14,8 +14,6 @@ import axios from 'axios'
          }
          const res = await axios.post("/user/resetpassword",obj)
          console.log(res.data)
-             
- 
      }
    return (
      <div>

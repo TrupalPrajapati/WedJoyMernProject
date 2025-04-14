@@ -1,6 +1,7 @@
 import { Loader } from "./Common/Loader";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Bounce, toast } from "react-toastify";
 
 export const ViewEventAsCommunityMember = () => {
@@ -8,24 +9,24 @@ export const ViewEventAsCommunityMember = () => {
   const [registeredEventIds, setRegisteredEventIds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [eventRegistrations, setEventRegistrations] = useState({});
+  const navigate = useNavigate();
 
   const userId = localStorage.getItem("id");
   console.log("User ID:", userId);
 
   const registerEvent = async (id) => {
-
     const event = events.find((event) => event._id === id);
 
-  if (event.registrationCount >= event.maxAttendees) {
-    toast.warn("Event is full. Registration closed.", {
-      position: "top-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      theme: "dark",
-      transition: Bounce,
-    });
-    return;
-  }
+    if (event.registrationCount >= event.maxAttendees) {
+      toast.warn("Event is full. Registration closed.", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        theme: "dark",
+        transition: Bounce,
+      });
+      return;
+    }
 
     try {
       const res = await axios.post("/eventregister/register", {
@@ -47,13 +48,13 @@ export const ViewEventAsCommunityMember = () => {
         setRegisteredEventIds((prev) => [...prev, id.toString()]);
 
         // Update the registration count for the event
-      setEvents((prevEvents) =>
-        prevEvents.map((event) =>
-          event._id === id
-            ? { ...event, registrationCount: event.registrationCount + 1 }
-            : event
-        )
-      );
+        setEvents((prevEvents) =>
+          prevEvents.map((event) =>
+            event._id === id
+              ? { ...event, registrationCount: event.registrationCount + 1 }
+              : event
+          )
+        );
       }
     } catch (error) {
       if (error.response?.status === 400) {
@@ -72,8 +73,8 @@ export const ViewEventAsCommunityMember = () => {
           theme: "dark",
           transition: Bounce,
         });
-        }
-      } 
+      }
+    }
   };
 
   const getAllApprovedEvents = async () => {
@@ -152,8 +153,8 @@ export const ViewEventAsCommunityMember = () => {
         ) : (
           <div className="event-container">
             {events?.map((event) => {
-                const isEventFull = event.registrationCount >= event.maxAttendees;
-                const isRegistered = registeredEventIds.includes(event._id);
+              const isEventFull = event.registrationCount >= event.maxAttendees;
+              const isRegistered = registeredEventIds.includes(event._id);
               return (
                 <div className="event-card" key={event._id}>
                   <img
@@ -171,10 +172,15 @@ export const ViewEventAsCommunityMember = () => {
                       Max People: {event.maxAttendees}
                     </p>
                     <p className="event-attendees">
-                    Registered: {event.registrationCount}
-                  </p>
-
-                  {isRegistered ? (
+                      Registered: {event.registrationCount}
+                    </p>
+                    <button
+                      className="btn details"
+                      onClick={() => navigate(`/event/${event._id}`)}
+                    >
+                      More Details
+                    </button>
+                    {/* {isRegistered ? (
                     <div className="button-container">
                       <button className="btn registered">
                         Already Registered
@@ -197,7 +203,7 @@ export const ViewEventAsCommunityMember = () => {
                     >
                       Register
                     </button>
-                  )}
+                  )} */}
                     {/* {registeredEventIds.includes(event._id) ? (
                       <div className="button-container">
                         <button className="btn registered">

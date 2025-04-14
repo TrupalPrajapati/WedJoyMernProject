@@ -1,55 +1,9 @@
 const EventRegistrationModel = require("../models/EventRegistrationModel");
 const Event = require("../models/eventModel");
 
-// const registerForEvent = async (req, res) => {
-//   try {
-//     const { userId, eventId } = req.body;
-//     const event = await Event.findById(eventId);
-
-//     // Log the received data for debugging
-//     console.log("Received registration request:", req.body);
-
-//     if (!userId || !eventId) {
-//       return res.status(400).json({ message: "User ID and Event ID are required" });
-//     }
-
-//     // Count current registrations
-//     const registrationCount = await EventRegistrationModel.countDocuments({ eventId });
-    
-//     // Check if maxAttendees limit is reached
-//     if (registrationCount >= event.maxAttendees) {
-//       return res.status(400).json({ message: "Event is full. Registration closed." });
-//     }
-
-//     // Check if the user is already registered for the event
-//     const existingRegistration = await EventRegistrationModel.findOne({ userId, eventId });
-//     console.log("Existing Registration:", existingRegistration); // Debugging log
-//     if (existingRegistration) {
-//       return res.status(400).json({
-//         message: "You are already registered for this event",
-//       });
-//     }
-
-//     // If not registered, create a new registration
-//     const newRegistration = await EventRegistrationModel.create(req.body);
-
-//     res.status(201).json({
-//       message: "User registered for the event successfully",
-//       data: newRegistration,
-//     });
-
-//   } catch (error) {
-//     console.error("Error during event registration:", error.message);
-//     res.status(500).json({ 
-//       message: "Registration failed due to a server error",
-//       error: error.message 
-//     });
-//   }
-// };
-
 const registerForEvent = async (req, res) => {
   try {
-    const { userId, eventId } = req.body;
+    const { userId, eventId} = req.body;
 
     // Validate input
     if (!userId || !eventId) {
@@ -77,7 +31,12 @@ const registerForEvent = async (req, res) => {
     }
 
     // Create a new registration
-    const newRegistration = await EventRegistrationModel.create({ userId, eventId });
+    const newRegistration = await EventRegistrationModel.create({ userId, eventId});
+
+    // ✅ Increment the registrationCount in the Event model
+    await Event.findByIdAndUpdate(eventId, {
+      $inc: { registrationCount: 1 },
+    });
 
     res.status(201).json({
       message: "User registered for the event successfully",
@@ -127,7 +86,9 @@ const getAllApprovedEvents = async (req, res) => {
 
 const getAllRegistrationsbyUserId = async (req, res) => {
     try {
-      const registrations = await EventRegistrationModel.find({userId:req.params.userId}).populate("eventId userId");
+      const registrations = await EventRegistrationModel.find({userId:req.params.userId}).populate("eventId userId").populate("stateId").populate("cityId").populate("areaId")  // Fetch only 'name'
+      .populate("cityId", "name")
+      .populate("areaId", "name");
       if( registrations.length === 0 ){
         return res.status(404).json({
             message:"No EVent Founds"
@@ -148,6 +109,8 @@ const getAllRegistrationsbyUserId = async (req, res) => {
     }
   };
 
+
+
   const cancelRegistration = async (req, res) => {
     try {
       const { userId, eventId } = req.params;
@@ -161,6 +124,11 @@ const getAllRegistrationsbyUserId = async (req, res) => {
       if (!deletedRegistration) {
         return res.status(404).json({ message: "Registration not found!" });
       }
+
+      // ✅ [NEW] Decrease registration count
+      await Event.findByIdAndUpdate(eventId, {
+        $inc: { registrationCount: -1 },
+      });
   
       res.status(200).json({ message: "Registration canceled successfully!" });
   

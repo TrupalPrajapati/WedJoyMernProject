@@ -8,7 +8,7 @@ export const ViewEvents = () => {
   const [events, setEvents] = useState([]);
   const [isLoading, setisLoading] = useState(false);
   const navigate = useNavigate();
-  const getAllMyEvents = async () => {
+  const getAllMyEventsByUserId = async () => {
     setisLoading(true);
     const res = await axios.get(
       "/event/geteventsbyuserid/" + localStorage.getItem("id")
@@ -23,7 +23,7 @@ export const ViewEvents = () => {
   }
 
   useEffect(() => {
-    getAllMyEvents();
+    getAllMyEventsByUserId();
   }, []);
 
   return (
@@ -36,6 +36,7 @@ export const ViewEvents = () => {
             <div className="event-card" key={event.id}>
               <img src={event.imageURL} alt="Event" className="event-image" />
               <div className="event-content">
+                <Link to={'https://www.google.com/maps/search/?api=1&query='+event.areaId.name}target='blank'>
                 <p className="event-date">Date: {event.eventDate}</p>
                 <p className="event-title">{event.title}</p>
                 <p className="event-description">{event.description}</p>
@@ -44,6 +45,7 @@ export const ViewEvents = () => {
                 <p className="event-attendees">
                   Max People: {event.maxAttendees}
                 </p>
+                </Link>
                 <button className="event-review" onClick={() => handleSubmit(event.id)}>
                   Add Review
                 </button>

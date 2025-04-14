@@ -1,0 +1,21 @@
+/* Ensure proper spacing between navbar and content */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Your existing navbar styles */
+  }
+  
+  .post-feed {
+    margin-top: 60px; /* Adjust based on your navbar height */
+    padding: 20px;
+    width: 100%;
+    overflow-y: auto;
+  }

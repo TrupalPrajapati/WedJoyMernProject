@@ -1,0 +1,124 @@
+/* 
+.post-feed {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .create-post-container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .post-input {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    resize: vertical;
+    margin-bottom: 12px;
+    font-size: 1em;
+    outline: none;
+  }
+  
+  .post-input:focus {
+    border-color: #1877f2;
+  }
+  
+  .post-button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .post-button:hover {
+    background-color: #166fe5;
+  }
+  
+  .post-button:disabled {
+    background-color: #e4e6eb;
+    cursor: not-allowed;
+  }
+  
+  .feed-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+  } */
+
+
+  /* Add these new styles */
+.create-post-button {
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: block;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .create-post-button:hover {
+    background-color: #166fe5;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .cancel-button {
+    background-color: #e4e6eb;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #d8dadf;
+  }

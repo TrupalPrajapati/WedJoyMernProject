@@ -18,15 +18,14 @@ app.use("/event", eventRoutes);
 const businessRoutes = require("./src/routes/businessListingRoutes");
 app.use("/business", businessRoutes);
 
-//PostRoutes
-const PostRoutes = require("./src/routes/postRoutes");
-app.use("/post", PostRoutes);
+//post
+const postController = require("./src/routes/postRoutes");
+app.use("/posts",postController)
 
 //EventRegistrationRoutes
 const EventRegistrationRoutes = require("./src/routes/eventRegistrationRoutes");
 app.use("/eventregister", EventRegistrationRoutes);
 
-//PostRoutes
 const reviewRoutes = require("./src/routes/reviewRoutes");
 app.use("/review", reviewRoutes);
 

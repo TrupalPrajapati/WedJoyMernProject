@@ -25,6 +25,11 @@ import { ResetPassword } from "./Components/Common/ResetPassword";
 import { ViewAllBusiness } from "./Components/ViewAllBusiness";
 import { ViewBusinessDetails } from "./Components/ViewBusinessDetails";
 import ReviewForm from "./Components/ReviewForm";
+import { ForgotPswd } from "./Components/Common/ForgotPswd";
+import  EventDetails  from "./Components/EventDetails";
+import { PostFeed } from "./Components/PostFeed";
+import { CreateNewsPost } from "./Components/CreateNewsPost";
+
  
 
 export const App = () => {
@@ -32,7 +37,8 @@ export const App = () => {
   axios.defaults.baseURL = "http://localhost:3001"
 
   return (
-    <div>
+    <div className="main-container">
+      <div className="content">
       <ToastContainer
               position="top-center"
               autoClose={5000}
@@ -47,6 +53,7 @@ export const App = () => {
               transition={Bounce}
             />
       <Navbar />
+      
       <Routes>
         <Route path="/" element={<SelectRole></SelectRole>}></Route>
         {/* <Route path="/signup" element={<SignUp></SignUp>}></Route> */}
@@ -63,7 +70,7 @@ export const App = () => {
         
         <Route path="/viewbusiness" element={<ViewBusiness></ViewBusiness>}></Route>
         <Route path="/viewallbusiness" element={<ViewAllBusiness></ViewAllBusiness>}></Route>
-        <Route path="/reviewform/:id" element={<ReviewForm></ReviewForm>}></Route>
+        <Route path="/reviewform/:eventId" element={<ReviewForm></ReviewForm>}></Route>
         <Route path="/viewbusinessdeatils/:id" element={<ViewBusinessDetails></ViewBusinessDetails>}></Route>
         <Route path="/userrolepage" element={<UserRolePage></UserRolePage>}></Route>
         <Route path="/vieweventascommunitymember" element={<ViewEventAsCommunityMember></ViewEventAsCommunityMember>}></Route>
@@ -71,7 +78,14 @@ export const App = () => {
         <Route path="/userregisteredevents" element={<ViewRegisteredEvents></ViewRegisteredEvents>}></Route>
         <Route path="/busineessownerrolepage" element={<BusinessOwnerPage></BusinessOwnerPage>}></Route>
         <Route path="/resetpassword/:token" element={<ResetPassword></ResetPassword>}></Route>
+        <Route path="/forgotpassword" element={<ForgotPswd></ForgotPswd>}></Route>
+        <Route path="/event/:id" element={<EventDetails />} />
+        <Route path="/newspostfeed" element={<PostFeed />} />
+        <Route path="/create-news-post" element={<CreateNewsPost />} />
+
       </Routes>
+    
+      </div>
     </div>
   );
 };

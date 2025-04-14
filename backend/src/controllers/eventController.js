@@ -1,4 +1,5 @@
 const eventModel = require("../models/eventModel");
+const EventRegistrationModel = require('../models/EventRegistrationModel');
 const multer = require("multer");
 const path = require("path");
 const cloudinaryUtil = require("../utils/cloudinaryUtil")
@@ -103,15 +104,64 @@ const getApprovedEvents = async (req, res) => {
   }
 };
 
-
+const getEventByEventId = async (req, res) => {
+    try {
+      const { id } = req.params;
   
-
+      const event = await eventModel.findById(id);
+      if (!event) {
+        return res.status(404).json({
+          success: false,
+          message: "Event not found",
+        });
+      }
   
+      return res.status(200).json({
+        success: true,
+        data: event,
+      });
+    } catch (error) {
+      console.error("Error fetching event by ID:", error.message);
+      return res.status(500).json({
+        success: false,
+        message: "Server error",
+      });
+    }
+  };
+
+  const getEventByIdWithCount = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      // Get the event
+      const event = await eventModel.findById(id);
+      if (!event) {
+        return res.status(404).json({ message: "Event not found" });
+      }
+  
+      // Count registrations for this event
+      const registrationCount = await EventRegistrationModel.countDocuments({ eventId: id });
+  
+      // Return event data + registration count
+      res.status(200).json({
+        message: "Event fetched successfully",
+        data: {
+          ...event.toObject(),
+          registrationCount,
+        },
+      });
+    } catch (error) {
+      console.error("Error fetching event with count:", error);
+      res.status(500).json({ message: "Server error", error: error.message });
+    }
+  };
+
 module.exports = {
     addEvents,
     getAllEVents,
     addEventWithFile,
     getAllEVentsByuserId,
-    
-    getApprovedEvents
+    getEventByEventId,
+    getApprovedEvents,
+    getEventByIdWithCount
 }

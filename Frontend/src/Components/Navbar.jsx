@@ -39,6 +39,8 @@ const Navbar = () => {
             <Link to="/vieweventascommunitymember">View All Events</Link>
             <Link to="/userregisteredevents">My Registered Events</Link>
             <Link to="/viewallbusiness">Explore businesses</Link>
+            <Link to="/newspostfeed">News Feed</Link>
+            <Link to="/create-news-post">Create News Post</Link>
           </>
         )}
 

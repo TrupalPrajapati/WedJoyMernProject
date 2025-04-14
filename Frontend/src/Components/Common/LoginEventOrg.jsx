@@ -87,7 +87,7 @@ export const LoginEventOrg = () => {
           {errors.password && (
             <span className="error">{errors.password.message}</span>
           )}
-
+          <Link to="/forgotpassword" className="forgot-password">forgot Password</Link>
           <button type="submit" className="auth-btn">
             Login
           </button>
