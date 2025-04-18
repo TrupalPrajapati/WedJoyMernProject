@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { isValid, parseISO, format } from 'date-fns';
+import { Link, useParams } from "react-router-dom";
+import { isValid, parseISO, format } from "date-fns";
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import styles from "../Components/Styles/eventdetail.module.css";
 
 const EventDetails = () => {
@@ -56,13 +57,15 @@ const EventDetails = () => {
     }
   };
 
+  const handlelocation = async () => {};
+
   const parseAndFormatDate = (dateString) => {
     try {
       const date = parseISO(dateString); // Parse ISO date string
       if (!isValid(date)) {
         return "N/A";
       }
-      return format(date, 'MM/dd/yyyy'); // Format the date
+      return format(date, "MM/dd/yyyy"); // Format the date
     } catch (error) {
       console.error("Error parsing date:", error);
       return "N/A";
@@ -73,7 +76,7 @@ const EventDetails = () => {
   if (!event) return <p>No event found</p>;
 
   return (
-    <div className={styles.eventContainer}>
+    <div className={styles.eventContainer} animate-fadeInUp>
       <div className="eventImageWrapper">
         <img
           src={
@@ -98,17 +101,31 @@ const EventDetails = () => {
       </p>
 
       <p className={styles.eventInfo}>
-      <strong>Date:</strong> {event.eventDate ? parseAndFormatDate(event.eventDate) : "N/A"}
+        <strong>Date:</strong>{" "}
+        {event.eventDate ? parseAndFormatDate(event.eventDate) : "N/A"}
       </p>
 
       {/* ✅ Action Buttons */}
-      <button className={styles.btnRegister} onClick={handleRegister}>
-        Register for Event
-      </button>
 
-      <button className={styles.btnCancel} onClick={handleCancel}>
-        Cancel Registration
-      </button>
+      <div className="btn-container">
+        <button className={styles.btnRegister} onClick={handleRegister}>
+          Register for Event
+        </button>
+
+        <button className={styles.btnCancel} onClick={handleCancel}>
+          Cancel Registration
+        </button>
+
+        <Link className={styles.btnLocation}
+          to={
+            "https://www.google.com/maps/search/?api=1&query=" +
+            event.areaId?.name
+          }
+          target="blank"
+        >
+          <FaMapMarkerAlt />
+        </Link>
+      </div>
     </div>
   );
 };

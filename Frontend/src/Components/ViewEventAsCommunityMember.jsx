@@ -123,29 +123,57 @@ export const ViewEventAsCommunityMember = () => {
     }
   };
 
+
   useEffect(() => {
     axios
       .get(`/eventregister/registrations/${userId}`)
       .then((res) => {
         console.log("Registered data:", res.data.data);
-        const eventIds = res.data.data.map((item) =>
-          typeof item.eventId === "object"
-            ? item.eventId._id?.toString()
-            : item.eventId?.toString()
-        );
-        setRegisteredEventIds(eventIds);
+        
+        // Safely extract event IDs
+        const eventIds = res.data.data
+          ?.filter(item => item != null) // Filter out null/undefined items
+          ?.map(item => {
+            // Handle cases where item or eventId might be null/undefined
+            if (!item || !item.eventId) return null;
+            
+            // Handle both object and string eventId cases
+            return typeof item.eventId === "object"
+              ? item.eventId?._id?.toString()
+              : item.eventId?.toString();
+          })
+          ?.filter(id => id != null); // Filter out any null IDs
+        
+        setRegisteredEventIds(eventIds || []); // Ensure we always set an array
       })
-      .catch((error) =>
-        console.error("Error fetching registered events:", error)
-      );
+      .catch((error) => {
+        console.error("Error fetching registered events:", error);
+        setRegisteredEventIds([]); // Reset on error
+      });
   }, [userId]);
+  // useEffect(() => {
+  //   axios
+  //     .get(`/eventregister/registrations/${userId}`)
+  //     .then((res) => {
+  //       console.log("Registered data:", res.data.data);
+  //       const eventIds = res.data.data.map((item) =>
+  //         typeof item.eventId === "object"
+  //           ? item.eventId._id?.toString()
+  //           : item.eventId?.toString()
+  //       );
+  //       setRegisteredEventIds(eventIds);
+  //     })
+  //     .catch((error) =>
+  //       console.error("Error fetching registered events:", error)
+  //     );
+  // }, [userId]);
 
   useEffect(() => {
     getAllApprovedEvents();
   }, []);
 
   return (
-    <div>
+    <div className="animate-fadeInUp">
       <h1>Events</h1>
       <div className="parent">
         {isLoading ? (
@@ -163,7 +191,8 @@ export const ViewEventAsCommunityMember = () => {
                     className="event-image"
                   />
                   <div className="event-content">
-                    <p>Date: {event.date}</p>
+                    {event?.eventDate && <p>Date: {new Date(event.eventDate).toLocaleDateString()}</p>}
+                    {/* <p>Date: {new Date(event.date).toLocaleString()}</p> */}
                     <p className="event-title">{event.title}</p>
                     <p className="event-description">{event.description}</p>
                     <p className="event-meta">Start Time: {event.startTime}</p>
@@ -174,6 +203,20 @@ export const ViewEventAsCommunityMember = () => {
                     <p className="event-attendees">
                       Registered: {event.registrationCount}
                     </p>
+                    {/* <h3>Reviews:</h3>
+                      {event.reviews?.length > 0 ? (
+                        <ul>
+                          {event.reviews.map(review => (
+                            <li key={review._id}>
+                              <p>Rating: {review.rating}/5</p>
+                              <p>{review.comment}</p>
+                              <small>{new Date(review.createdAt).toLocaleDateString()}</small>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p>No reviews yet</p>
+                      )} */}
                     <button
                       className="btn details"
                       onClick={() => navigate(`/event/${event._id}`)}

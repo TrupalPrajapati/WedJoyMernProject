@@ -1,4 +1,4 @@
-.role-selection-container {
+/* .role-selection-container {
     text-align: center;
     padding: 30px;
   }
@@ -27,5 +27,75 @@
   
   .role-buttons button:hover {
     background: navy;
+  }
+   */
+
+   .bg-decor {
+    min-height: 100vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background-image: radial-gradient(circle at top left, white 0%, transparent 60%);
+  }
+  
+  .role-selection-container {
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease forwards;
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .role-selection-container h2 {
+    margin-bottom: 35px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #4a90e2, navy);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .role-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .role-buttons button {
+    background: linear-gradient(135deg, #4a90e2, navy);
+    color: white;
+    border: none;
+    padding: 16px 26px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .role-buttons button:hover {
+    background: navy;
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
   

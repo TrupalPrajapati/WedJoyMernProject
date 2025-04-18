@@ -94,7 +94,7 @@ const AddEvent = () => {
   }, []);
 
   return (
-    <div className="event-container">
+    <div className="event-container animate-fadeInUp">
       <div className="event-box">
         <h2>Publish an Event</h2>
         <form className="container" onSubmit={handleSubmit(submitHandler)}>

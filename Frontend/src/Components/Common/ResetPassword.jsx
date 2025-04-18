@@ -16,7 +16,7 @@ import axios from 'axios'
          console.log(res.data)
      }
    return (
-     <div>
+     <div className='animate-fadeInUp'>
          <h1>RESET PASSWOERD COMPONENT</h1>
          <form onSubmit={handleSubmit(submitHandler)}>
              <div>

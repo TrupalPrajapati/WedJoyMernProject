@@ -62,7 +62,7 @@ export const SignupBussinessOwner = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container animate-fadeInUp">
       
       <div className="signup-box">
         <h2>Sign Up As a Bussiness Owner</h2>

@@ -35,7 +35,11 @@ const eventRegistrationSchema = new mongoose.Schema(
     registrationCount: {
       type: Number,
       default: 0, // ✅ Automatically start with 0
-    }
+    },
+    reviews: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'review'
+    }]
   }
 );
 

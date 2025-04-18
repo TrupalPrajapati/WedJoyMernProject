@@ -1,28 +1,112 @@
 .footer {
-    background: linear-gradient(to right, #000428, #004e92);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
+    background: navy; 
+    color: #fff;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+    width: 100vw; 
+    margin-left: calc(-50vw + 50%); 
     position: relative;
-    bottom: 0;
     left: 0;
+    box-sizing: border-box;
 }
 
-/* Footer links */
-.footer-links {
+.footer-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 15px 0;
+    box-sizing: border-box;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
 }
-
-.footer-links a {
-    color: white;
+  
+  .footer-text {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.6;
+  }
+  
+  .footer-subtitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #444;
+    padding-bottom: 5px;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-links a:hover {
-    color: lightgray;
-}
+    color: #bbb;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .footer-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-icon {
+    color: #bbb;
+    font-size: 20px;
+    transition: color 0.3s;
+  }
+  
+  .social-icon:hover {
+    color: #fff;
+  }
+  
+  .footer-copyright {
+    text-align: center;
+    padding-top: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #bbb;
+  }
+  
+  
+@media (min-width: 1400px) {
+    .footer-container {
+      max-width: 100%; 
+    }
+  }
+  
+  @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+  
+      .footer-socials {
+        justify-content: center;
+      }
+  }

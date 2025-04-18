@@ -68,13 +68,14 @@ export const PostFeed = () => {
   }, []);
 
   return (
-    <div className="post-feed">
+    <div className="post-feed animate-fadeInUp">
       <h1 className="feed-title">Community News Feed</h1>
       
       {posts.length === 0 ? (
         <p className="no-posts">No posts yet. Be the first to share!</p>
       ) : (
-        posts.map(post => (
+        <div className='posts-list'>
+          {posts.map(post => (
           <Post
             key={post._id}
             post={post}
@@ -83,7 +84,8 @@ export const PostFeed = () => {
             onComment={addComment}
             onUnlike={unlikePost} 
           />
-        ))
+        ))}
+        </div>
       )}
     </div>
   );

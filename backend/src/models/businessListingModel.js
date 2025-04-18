@@ -54,6 +54,26 @@ const businessListingSchema = new mongoose.Schema(
     },
     website: {
       type: String,
+    },
+    logoURL: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    imageURL: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    cloudinaryLogoId: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    cloudinaryImageId: {
+      type: String,
+      default: "",
+      trim: true,
     }
   },
   { timestamps: true } // Creates createdAt & updatedAt automatically

@@ -16,12 +16,17 @@
   }
   
   .review-form button {
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #4a90e2, navy); 
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
   }
+
+  .review-form button:hover{
+    background: navy;
+  }
+
   
   .reviews-container {
     width: 100%;
@@ -35,4 +40,6 @@
     margin: 10px 0;
     border-radius: 5px;
   }
+
+  
   

@@ -41,6 +41,10 @@ app.use("/city", cityRoutes);
 const areaRoutes = require("./src/routes/areaRoutes");
 app.use("/area", areaRoutes);
 
+//areaRoutes
+const contactRoutes = require("./src/routes/contactRoutes");
+app.use("/contact", contactRoutes);
+
 // Connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/wedjoy").then(() => {
   console.log("Database connected...");

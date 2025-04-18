@@ -27,7 +27,7 @@ export const ViewEvents = () => {
   }, []);
 
   return (
-    <div className="parent">
+    <div className="parent animate-fadeInUp">
       {(setisLoading == false) ? (
         <Loader></Loader>
       ) : (
@@ -36,7 +36,7 @@ export const ViewEvents = () => {
             <div className="event-card" key={event.id}>
               <img src={event.imageURL} alt="Event" className="event-image" />
               <div className="event-content">
-                <Link to={'https://www.google.com/maps/search/?api=1&query='+event.areaId.name}target='blank'>
+                {/* <Link to={'https://www.google.com/maps/search/?api=1&query='+event.areaId.name}target='blank'> */}
                 <p className="event-date">Date: {event.eventDate}</p>
                 <p className="event-title">{event.title}</p>
                 <p className="event-description">{event.description}</p>
@@ -45,10 +45,10 @@ export const ViewEvents = () => {
                 <p className="event-attendees">
                   Max People: {event.maxAttendees}
                 </p>
-                </Link>
-                <button className="event-review" onClick={() => handleSubmit(event.id)}>
+                {/* </Link> */}
+                {/* <button className="event-review" onClick={() => handleSubmit(event.id)}>
                   Add Review
-                </button>
+                </button> */}
               </div>
             </div>
           ))}

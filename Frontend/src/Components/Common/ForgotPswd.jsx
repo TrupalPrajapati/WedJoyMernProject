@@ -23,7 +23,7 @@ export const ForgotPswd = () => {
     }
 
   return (
-    <div>
+    <div className='animate-fadeInUp'>
         <h1>Forgot Password</h1>
         <form onClick={handleSubmit(submitHadler)}>
             <label>Enter your Email:</label>

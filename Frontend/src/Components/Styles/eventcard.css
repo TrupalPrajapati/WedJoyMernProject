@@ -59,6 +59,8 @@
   gap: 30px; /* Spacing between cards */
   justify-content: center; /* Center align */
   align-items: flex-start; /* Proper alignment */
+  background-color: white;
+  text-decoration: none;
 }
 
 /* Individual Event Card */
@@ -72,6 +74,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
   justify-content: space-between;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
@@ -101,6 +104,15 @@
 p{
   margin: 4px;
 }
+
+.event-review{
+  background: linear-gradient(135deg, #4a90e2, navy);
+}
+
+.event-review:hover{
+  background: navy;
+}
+
 
 /* Event Title */
 .event-title {

@@ -32,7 +32,7 @@ export const ViewRegisteredEvents = () => {
   }, []);
 
   return (
-    <div className="parent">
+    <div className="parent animate-fadeInUp">
       {setisLoading == false ? (
         <Loader></Loader>
       ) : (
@@ -45,13 +45,13 @@ export const ViewRegisteredEvents = () => {
                 className="event-image"
               />
               <div className="event-content">
-                <Link
+                {/* <Link
                   to={
                     "https://www.google.com/maps/search/?api=1&query=" +
                     eventReg.areaId?.name
                   }
                   target="_blank"
-                >
+                > */}
                   <p className="event-date">
                     Date: {eventReg.eventId?.eventDate}
                   </p>
@@ -68,7 +68,7 @@ export const ViewRegisteredEvents = () => {
                   <p className="event-attendees">
                     Max People: {eventReg.eventId?.maxAttendees}
                   </p>
-                </Link>
+                {/* </Link> */}
                   {/* ✅ Show "Add Review" only if event is completed */}
                   {isPastEvent(eventReg.eventId?.eventDate) && (
                   <button

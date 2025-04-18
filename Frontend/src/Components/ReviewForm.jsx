@@ -30,7 +30,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <form onSubmit={submitReview} className="review-form">
+    <form onSubmit={submitReview} className="review-form animate-fadeInUp">
       <label>Rating:</label>
       <select value={rating} onChange={(e) => setRating(e.target.value)}>
         {[1, 2, 3, 4, 5].map((num) => (

@@ -63,7 +63,7 @@ export const LoginUser = () => {
   };
 
   return (
-    <div className="auth-container">
+    <div className="auth-container animate-fadeInUp">
       <div className="auth-card">
         <h2>Login</h2>
         <p>Welcome back! Please login to your account.</p>

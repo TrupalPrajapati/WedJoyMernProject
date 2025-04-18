@@ -23,34 +23,67 @@ nav {
   margin-left: 24px;
 } 
 
-  
+body{
+  background-color: white;
+}
 
-  
-  /* Navigation Links */
-  .nav-links {
-    display: flex;
-    gap: 25px;
-    margin-left: auto;
-  }
-  
-  /* Nav Links Styling */
-  .nav-links a {
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-    padding: 8px 12px;
-    transition: 0.3s ease-in-out;
-    border-radius: 5px;
-  }
-  
-  /* Hover Effect - Same as Signup Button */
-  .nav-links a:hover {
-    background: white;
-    color: navy;
-  }
-  
-  /* Contact Link Margin Fix */
-  .contact {
-    margin-right: 50px;
-  }
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+  background: white;
+  color: navy;
+}
+
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  background: #e0e0e0;
+}
+
+.nav-link.active {
+  /* background: linear-gradient(135deg, #4a90e2, navy); */
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: underline;
+}
+
+/* Nav Links Styling */
+.nav-links a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  padding: 8px 12px;
+  transition: 0.3s ease-in-out;
+  border-radius: 5px;
+}
+
+/* Hover Effect - Same as Signup Button */
+.nav-links a:hover {
+  background: white;
+  color: navy;
+}
+
+/* Contact Link Margin Fix */
+.contact {
+  margin-right: 50px;
+}
   

@@ -13,7 +13,7 @@ const EventReviews = ({ eventId }) => {
   }, [eventId]);
 
   return (
-    <div className="reviews-container">
+    <div className="reviews-container animate-fadeInUp">
       <h3>Reviews:</h3>
       {reviews.length === 0 ? (
         <p>No reviews yet.</p>

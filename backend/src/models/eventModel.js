@@ -63,6 +63,10 @@ const eventSchema = new mongoose.Schema(
       type: String,
       enum: ["approved", "pending"],
     },
+    reviews: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'review'
+    }]
   },
   { timestamps: true }
 );

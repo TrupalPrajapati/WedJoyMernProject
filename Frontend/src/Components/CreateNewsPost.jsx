@@ -36,7 +36,7 @@ export const CreateNewsPost = () => {
     };
   
     return (
-      <div className="create-post-page">
+      <div className="create-post-page animate-fadeInUp">
         <h1>Create New Post</h1>
         <form onSubmit={handleSubmit}>
           <input 

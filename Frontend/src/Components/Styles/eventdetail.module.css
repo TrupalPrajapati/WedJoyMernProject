@@ -62,13 +62,14 @@
   
   /* Buttons */
   .btnRegister,
-  .btnCancel {
+  .btnCancel,
+  .btnLocation {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background-color: #4a90e2; /* Matches navbar gradient */
+    background: linear-gradient(135deg, #4a90e2, navy); 
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -77,9 +78,10 @@
   }
   
   .btnRegister:hover,
-  .btnCancel:hover {
-      background-color:white ;
-      color:#4a90e2 ;
+  .btnCancel:hover,
+  .btnLocation:hover {
+      background:navy ;
+      color:white ;
       transform : scale(1.05);
       
   }
@@ -88,5 +90,11 @@
     margin-top: 1rem;
       margin-left :12px ;
       background-color:red ;
+  }
+
+  .btnLocation {
+    margin-top: 1rem;
+    margin-left :12px ;
+    text-decoration: none;
   }
   

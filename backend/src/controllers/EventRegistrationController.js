@@ -63,9 +63,10 @@ const getAllApprovedEvents = async (req, res) => {
         const registrationCount = await EventRegistrationModel.countDocuments({
           eventId: event._id,
         });
+        
         return {
-          ...event.toObject(), // Convert Mongoose document to plain object
-          registrationCount, // Add registration count to the event object
+          ...event.toObject(), 
+          registrationCount, 
         };
       })
     );

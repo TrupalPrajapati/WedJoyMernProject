@@ -58,7 +58,7 @@ export const SignupEventOrg = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container animate-fadeInUp">
       <div className="signup-box">
         <h2>Sign Up As a Event organizer</h2>
         <p>Create your account to get started.</p>

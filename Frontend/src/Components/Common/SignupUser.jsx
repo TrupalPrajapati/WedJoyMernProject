@@ -59,7 +59,7 @@ export const SignupUser = () => {
   };
 
   return (
-    <div className="signup-container">
+    <div className="signup-container animate-fadeInUp">
       <div className="signup-box">
         <h2>Sign Up As a User</h2>
         <p>Create your account to get started.</p>

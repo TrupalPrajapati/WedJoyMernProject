@@ -1,4 +1,4 @@
-.business-container {
+/* .business-container {
     font-family: Arial, sans-serif;
     background-color: #f4f8fb;
     display: flex;
@@ -14,7 +14,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 800px; /* Increased width for two-column layout */
+    width: 800px; 
     margin-top: 5rem;
 }
 
@@ -25,12 +25,12 @@
 
 .business-box form {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 15px; /* Reduced gap for better alignment */
-    padding: 0 20px; /* Add padding for spacing */
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    padding: 0 20px;
 }
 
-/* Style input, textarea, and select elements */
+
 .business-box input,
 .business-box textarea,
 .business-box select {
@@ -41,7 +41,7 @@
     font-size: 16px;
     outline: none;
     transition: border-color 0.3s ease;
-    box-sizing: border-box; /* Ensure padding is included in width */
+    box-sizing: border-box; 
 }
 
 .business-box input:focus,
@@ -50,25 +50,24 @@
     border-color: #4a90e2;
 }
 
-/* Make textarea span both columns */
 .business-box textarea {
     resize: vertical;
     min-height: 100px;
     grid-column: span 2;
 }
 
-/* Style the category and contact input group */
+
 .business-box .category-contact-group {
     display: flex;
     gap: 10px;
-    grid-column: span 2; /* Span both columns */
+    grid-column: span 2;
 }
 
 .business-box .category-contact-group input {
     flex: 1;
 }
 
-/* Style the button to span both columns */
+
 .business-box button[type="submit"] {
     grid-column: span 2;
     width: 100%;
@@ -87,7 +86,7 @@
     background: navy;
 }
 
-/* Style error messages */
+
 .business-box .error {
     color: red;
     font-size: 12px;
@@ -99,30 +98,228 @@
     grid-column: span 2;
 }
 
-/* Placeholder styling */
 .business-box input::placeholder,
 .business-box textarea::placeholder {
-    color: #999; /* Light gray placeholder text */
+    color: #999; 
 }
 
-/* Adjust margin for select elements */
+
 .business-box select {
     margin-bottom: 0;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .business-box {
         width: 90%;
     }
 
     .business-box form {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
     }
 
     .business-box textarea,
     .business-box .category-contact-group,
     .business-box button[type="submit"] {
-        grid-column: span 1; /* Ensure full width in mobile view */
+        grid-column: span 1; 
     }
-}
+} */
+
+.add-business-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    margin-top: 92rem;
+  }
+  
+  .add-business-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  .add-business-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .form-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .error {
+    border-color: #e74c3c !important;
+  }
+  
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: block;
+  }
+  
+  .time-input-group {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .time-input-group .form-group {
+    flex: 1;
+  }
+  
+  .file-upload-group {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .file-upload-group .form-group {
+    flex: 1;
+  }
+  
+  .file-upload-box {
+    border: 2px dashed #ddd;
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .file-upload-box:hover {
+    border-color: #3498db;
+  }
+  
+  .file-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .upload-icon {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+  }
+  
+  .file-preview {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .file-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 4px;
+  }
+  
+  .remove-file-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  
+  .file-hint {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 0.5rem;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+  
+  .submit-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: #2980b9;
+  }
+  
+  .submit-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .file-upload-group,
+    .time-input-group {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .add-business-container {
+      padding: 1rem;
+    }
+    
+    .add-business-card {
+      padding: 1.5rem;
+    }
+  }
+
+  

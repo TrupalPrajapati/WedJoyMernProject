@@ -22,7 +22,7 @@ const EventCard = () => {
   };
 
   return (
-    <div className="event-card">
+    <div className="event-card animate-fadeInUp">
       <img src={event.imageURL} alt={event.title} className="event-image" />
       <div className="event-content">
         <h2 className="event-title">{event.title}</h2>

@@ -29,7 +29,11 @@ import { ForgotPswd } from "./Components/Common/ForgotPswd";
 import  EventDetails  from "./Components/EventDetails";
 import { PostFeed } from "./Components/PostFeed";
 import { CreateNewsPost } from "./Components/CreateNewsPost";
-
+import { Footer } from "./Components/Common/Footer";
+import Hero from "./Components/Hero";
+import "../src/App.css"
+import {ContactUs} from "./Components/ContactUs";
+import EditBusiness from "./Components/EditBusiness";
  
 
 export const App = () => {
@@ -37,9 +41,8 @@ export const App = () => {
   axios.defaults.baseURL = "http://localhost:3001"
 
   return (
-    <div className="main-container">
-      <div className="content">
-      <ToastContainer
+    <div className="app-container">
+        <ToastContainer
               position="top-center"
               autoClose={5000}
               hideProgressBar={false}
@@ -52,10 +55,13 @@ export const App = () => {
               theme="dark"
               transition={Bounce}
             />
-      <Navbar />
-      
+                <Navbar />
+    
+    <div className="main-container">
+      <div className="content">
       <Routes>
-        <Route path="/" element={<SelectRole></SelectRole>}></Route>
+      <Route path="/" element={<Hero />} />
+        <Route path="/selectrole" element={<SelectRole></SelectRole>}></Route>
         {/* <Route path="/signup" element={<SignUp></SignUp>}></Route> */}
         <Route path="/signup/eventorganizer" element={<SignupEventOrg />} />
         <Route path="/signup/businessowner" element={<SignupBussinessOwner />} />
@@ -71,7 +77,7 @@ export const App = () => {
         <Route path="/viewbusiness" element={<ViewBusiness></ViewBusiness>}></Route>
         <Route path="/viewallbusiness" element={<ViewAllBusiness></ViewAllBusiness>}></Route>
         <Route path="/reviewform/:eventId" element={<ReviewForm></ReviewForm>}></Route>
-        <Route path="/viewbusinessdeatils/:id" element={<ViewBusinessDetails></ViewBusinessDetails>}></Route>
+        <Route path="/viewbusinessdetails/:id" element={<ViewBusinessDetails></ViewBusinessDetails>}></Route>
         <Route path="/userrolepage" element={<UserRolePage></UserRolePage>}></Route>
         <Route path="/vieweventascommunitymember" element={<ViewEventAsCommunityMember></ViewEventAsCommunityMember>}></Route>
         <Route path="/eventorgrolepage" element={<EventOrgRolePage></EventOrgRolePage>}></Route>
@@ -82,10 +88,16 @@ export const App = () => {
         <Route path="/event/:id" element={<EventDetails />} />
         <Route path="/newspostfeed" element={<PostFeed />} />
         <Route path="/create-news-post" element={<CreateNewsPost />} />
-
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/editbusiness/:id" element={<EditBusiness />} />
       </Routes>
     
+      
       </div>
+      
     </div>
+    {/* <Footer></Footer> */}
+    </div>
+    
   );
 };

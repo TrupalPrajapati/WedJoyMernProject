@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Components/Styles/selectRole.css"; 
+import { Footer } from "./Common/Footer";
 
 const SelectRole = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const SelectRole = () => {
   
 
   return (
+    <div className="bg-decor animate-fadeInUp">
     <div className="role-selection-container">
       <h2>Select Your Role</h2>
       <div className="role-buttons">
@@ -23,6 +25,8 @@ const SelectRole = () => {
         <button onClick={() => handleRoleSelection("businessowner")}>Business Owner</button>
         <button onClick={() => handleRoleSelection("user")}>Event Participant</button>
       </div>
+    </div>
+      {/* <Footer></Footer> */}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 const eventModel = require("../models/eventModel");
 const EventRegistrationModel = require('../models/EventRegistrationModel');
+const reviewModel = require("../models/reviewModel")
 const multer = require("multer");
 const path = require("path");
 const cloudinaryUtil = require("../utils/cloudinaryUtil")
@@ -51,13 +52,12 @@ const addEvents = async(req,res)=>{
     }catch(error){
         return res.status(400).json({ msg: "Event publish is failed!" });
     }
-    
 }
 
 const getAllEVentsByuserId = async(req,res)=>{
 
     try{
-        const events = await eventModel.find({userId:req.params.userId}).populate("stateId cityId areaId userId");
+        const events = await eventModel.find({userId:req.params.userId}).populate("stateId cityId areaId userId review");
         if( events.length === 0 ){
             res.status(404).json({
                 message:"No EVent Founds"
@@ -90,8 +90,26 @@ const getAllEVents = async(req,res)=>{
 
 const getApprovedEvents = async (req, res) => {
   try {
-    const events = await eventModel.find({ status: "approved" });
-
+    const events = await eventModel.find({ status: "approved" }).populate({
+      path: "areaId",
+      select: "name" // only get the 'name' field from Area
+    }).lean(); // Convert to plain JavaScript objects
+    
+     // 2. Fetch reviews for each event in parallel
+     const eventsWithReviews = await Promise.all(
+      events.map(async (event) => {
+        const reviews = await reviewModel.find({ eventId: event._id })
+          .select("comment rating createdAt userId")
+          .populate("userId", "name") // Optional: include reviewer's name
+          .sort({ createdAt: -1 })
+          .lean();
+        
+        return {
+          ...event,
+          reviews: reviews || [] // Ensure reviews is always an array
+        };
+      })
+    );
     res.status(200).json({
       message: "Approved events fetched successfully",
       data: events,
@@ -134,7 +152,10 @@ const getEventByEventId = async (req, res) => {
       const { id } = req.params;
   
       // Get the event
-      const event = await eventModel.findById(id);
+      const event = await eventModel.findById(id).populate({
+        path: "areaId",
+        select: "name" // only get the 'name' field from Area
+      });
       if (!event) {
         return res.status(404).json({ message: "Event not found" });
       }
